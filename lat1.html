@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Beginners</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 5%;
+      font-family: 'Quicksand', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <img src="img/logo.png" width="80">
+      <h1>What is Vue.js</h1>
+      <p>The Progressive Javascript Framework</p>
+    </header>
+
+    <footer>
+      <p>kepuright 2021</p>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+  <script>
+    const vm = new Vue({
+      //  [property]: [value]
+      el: '#app' // #app sbg root component
+    })
+  </script>
+</body>
+
+</html>
