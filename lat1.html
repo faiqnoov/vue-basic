@@ -19,7 +19,10 @@
   <div id="app">
     <header>
       <img src="img/logo.png" width="80">
-      <h1>What is Vue.js</h1>
+      <!-- menampilkan data pada template html -->
+      <!-- interpolation/template syntax -->
+      <h1 v-once>{{ name }}</h1>
+      <!-- v-once ==> atribut untuk menetapkan nilai dari data, agar tidak bisa berubah secara reactive -->
       <p>The Progressive Javascript Framework</p>
     </header>
 
