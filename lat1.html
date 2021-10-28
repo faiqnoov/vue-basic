@@ -19,11 +19,7 @@
   <div id="app">
     <header>
       <img src="img/logo.png" width="80">
-      <h1 v-once>{{ name }}</h1>
-      <h1>{{ name + ' Okay' }}</h1>
-      <h1>{{ 3*5 }}</h1>
-      <h1>{{ name.toUpperCase() }}</h1>
-      <h1>{{ isactive? 'succes' : 'danger' }}</h1>
+      <h1 v-once>{{ getname() }}</h1>
       <p>The Progressive Javascript Framework</p>
     </header>
 
@@ -37,13 +33,17 @@
     // data di luar object vue (global)
     const member = {
       name: 'Doremi Fasolasido',
-      message: "Hello World!",
-      isactive: true
+      message: "Hello World!"
     }
 
     const vm = new Vue({
       el: '#app',
-      data: member
+      data: member,
+      methods: {
+        getname: function () {
+          return 'Hello, ' + this.name
+        }
+      }
     })
   </script>
 </body>
