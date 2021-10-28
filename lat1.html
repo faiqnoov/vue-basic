@@ -30,15 +30,15 @@
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
   <script>
+    // data di luar object vue (global)
+    const member = {
+      name: 'Doremi Fasolasido',
+      message: "Hello World!"
+    }
+
     const vm = new Vue({
-      //  [property]: [value]
       el: '#app',
-      data: {
-        // string, number, boolean, array, object
-        // data di dalam object vue
-        name: 'Doremi Fasolasido',
-        message: "Hello World!"
-      }
+      data: member
     })
   </script>
 </body>
