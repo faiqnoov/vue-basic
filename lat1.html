@@ -19,7 +19,7 @@
   <div id="app">
     <header>
       <img src="img/logo.png" width="80">
-      <h1 v-once>{{ getname() }}</h1>
+      <h1>{{ getname() }}</h1>
       <p>The Progressive Javascript Framework</p>
     </header>
 
@@ -30,19 +30,21 @@
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
   <script>
-    // data di luar object vue (global)
-    const member = {
-      name: 'Doremi Fasolasido',
-      message: "Hello World!"
-    }
-
     const vm = new Vue({
       el: '#app',
-      data: member,
+      data: {
+        name: 'Doremi Fasolasido',
+        message: "Hello World!"
+      },
       methods: {
         getname: function () {
           return 'Hello, ' + this.name
+        },
+        ubahNama: function (namaBaru) {
+          this.name = namaBaru
+          return this.getname()
         }
+        // ubahnama() dapat dicoba melalui console untuk mendapatkan hasil yg reactive
       }
     })
   </script>
