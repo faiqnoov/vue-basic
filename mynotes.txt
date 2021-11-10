@@ -1,0 +1,11 @@
+#7 - DATA
+- data pada vue seperti variabel pada js
+- dapat berada di dalam maupun di luar object vue
+- dapat berupa string, number, boolean, array, object
+
+-----------------------------------------
+
+#13 COMPUTED PROPERTY
+- property berbentuk method, tapi bukan didaftarkan dalam method. Namun dalam bagian tersendiri, yaitu computed
+- nilainya bergantung pada property lain
+- cara pemanggilan layaknya property biasa

@@ -19,7 +19,7 @@
   <div id="app">
     <header>
       <img src="img/logo.png" width="80">
-      <h1>{{ getname() }}</h1>
+      <h1>{{ namaLengkap }}</h1>
       <p>The Progressive Javascript Framework</p>
     </header>
 
@@ -34,7 +34,10 @@
       el: '#app',
       data: {
         name: 'Doremi Fasolasido',
-        message: "Hello World!"
+        message: "Hello World!",
+        qty: 7,
+        namaDepan: 'Faiq ',
+        namaBelakang: 'Nov'
       },
       methods: {
         getname: function () {
@@ -44,7 +47,14 @@
           this.name = namaBaru
           return this.getname()
         }
-        // ubahnama() dapat dicoba melalui console untuk mendapatkan hasil yg reactive
+      },
+      computed: {
+        totalBayar: function () {
+          return this.qty * 10000;
+        },
+        namaLengkap: function () {
+          return this.namaDepan + this.namaBelakang;
+        }
       }
     })
   </script>
