@@ -28,6 +28,13 @@
       <h1 v-text="name"></h1>
       <p><input type="text" v-model="name"></p>
 
+      <ul>
+        <li v-for="k in kelas">{{ k }}</li>
+        <!-- sama saja
+        <li v-for="k in kelas" v-text="k"></li>
+        <li v-for="k of kelas" v-text="k"></li> -->
+      </ul>
+
       <p>{{ kelas }}</p>
       <div>
         <label><input type="checkbox" value="React" v-model="kelas">React</label>
@@ -60,7 +67,7 @@
         bilangan: 1,
         gambar: 'img/vue.png',
         menu: 'home',
-        kelas: []
+        kelas: ['Golang', 'PHP', 'Python']
       },
       methods: {
         getname: function () {
