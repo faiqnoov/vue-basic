@@ -27,4 +27,10 @@
 
 -----------------------------------------
 
+#22 TWO WAY DATA BINDING
+- v-model --> utk membuat binding data dgn konsep 2 arah
+- biasanya digunakan pada elemen inputan
+- data view berubah --> data pada objek berubah
+
+-----------------------------------------
 

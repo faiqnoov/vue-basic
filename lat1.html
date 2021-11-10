@@ -25,17 +25,21 @@
   <div id="app">
     <header>
       <img src="img/logo.png" width="80">
-      <h1 v-text="bilangan"></h1>
-      <p>Bilangan ini adalah bilangan {{ infoBilangan }}</p>
+      <h1 v-text="name"></h1>
+      <p><input type="text" v-model="name"></p>
+
+      <p>{{ kelas }}</p>
+      <div>
+        <label><input type="checkbox" value="React" v-model="kelas">React</label>
+        <label><input type="checkbox" value="Vuejs" v-model="kelas">Vuejs</label>
+        <label><input type="checkbox" value="Angular" v-model="kelas">Angular</label>
+      </div>
+
       <p>
         <button @click="handleClick()">Ditekan</button>
       </p>
       <img :src="gambar" width="300">
       <p>The Progressive Javascript Framework</p>
-
-      <button v-bind:class="{active: menu === 'home'}" v-on:click="menu = 'home'">Home</button>
-      <button v-bind:class="{active: menu === 'about'}" v-on:click="menu = 'about'">About</button>
-      <button v-bind:class="{active: menu === 'blog'}" v-on:click="menu = 'blog'">Blog</button>
     </header>
 
     <footer>
@@ -55,7 +59,8 @@
         namaBelakang: 'Nov',
         bilangan: 1,
         gambar: 'img/vue.png',
-        menu: 'home'
+        menu: 'home',
+        kelas: []
       },
       methods: {
         getname: function () {
