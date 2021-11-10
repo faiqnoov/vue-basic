@@ -12,6 +12,12 @@
       margin: 5%;
       font-family: 'Quicksand', sans-serif;
     }
+
+    .active {
+      background-color: seagreen;
+      border: 0;
+      padding: 5px;
+    }
   </style>
 </head>
 
@@ -22,11 +28,14 @@
       <h1 v-text="bilangan"></h1>
       <p>Bilangan ini adalah bilangan {{ infoBilangan }}</p>
       <p>
-        <!-- <button v-on:click="handleClick()">Ditekan</button> -->
         <button @click="handleClick()">Ditekan</button>
       </p>
       <img :src="gambar" width="300">
       <p>The Progressive Javascript Framework</p>
+
+      <button v-bind:class="{active: menu === 'home'}" v-on:click="menu = 'home'">Home</button>
+      <button v-bind:class="{active: menu === 'about'}" v-on:click="menu = 'about'">About</button>
+      <button v-bind:class="{active: menu === 'blog'}" v-on:click="menu = 'blog'">Blog</button>
     </header>
 
     <footer>
@@ -45,7 +54,8 @@
         namaDepan: 'Faiq ',
         namaBelakang: 'Nov',
         bilangan: 1,
-        gambar: 'img/vue.png'
+        gambar: 'img/vue.png',
+        menu: 'home'
       },
       methods: {
         getname: function () {
