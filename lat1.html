@@ -19,9 +19,10 @@
   <div id="app">
     <header>
       <img src="img/logo.png" width="80">
-      <h1 v-text="name.toUpperCase()"></h1>
-      <h1 v-text="bilangan*5"></h1>
-      <h1 v-text="namaBelakang+namaDepan"></h1>
+      <h1 v-text="name"></h1>
+      <!-- {{ }} tidak bisa dilakukan dalam attribut binding, harus menggunakan directive v-bind-->
+      <img v-bind:src="gambar" width="300">
+      <img :src="gambar" width="300">
       <p>The Progressive Javascript Framework</p>
     </header>
 
@@ -40,7 +41,8 @@
         qty: 7,
         namaDepan: 'Faiq ',
         namaBelakang: 'Nov',
-        bilangan: 6
+        bilangan: 6,
+        gambar: 'img/vue.png'
       },
       methods: {
         getname: function () {
