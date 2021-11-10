@@ -9,3 +9,15 @@
 - property berbentuk method, tapi bukan didaftarkan dalam method. Namun dalam bagian tersendiri, yaitu computed
 - nilainya bergantung pada property lain
 - cara pemanggilan layaknya property biasa
+
+-----------------------------------------
+
+#15 DIRECTIVE
+- fungsi yg disediakan vuejs
+- mirip atribut dalam html
+- ditempelkan ke element html-nya
+- ex: v-once, v-text, v-html
+- kita bisa membuat custom directive
+
+-----------------------------------------
+
