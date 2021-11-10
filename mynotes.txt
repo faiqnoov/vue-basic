@@ -21,3 +21,10 @@
 
 -----------------------------------------
 
+#18 EVENTS
+- event dapat dilakukan oleh user maupun web
+- v-on atau @
+
+-----------------------------------------
+
+

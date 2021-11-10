@@ -19,9 +19,12 @@
   <div id="app">
     <header>
       <img src="img/logo.png" width="80">
-      <h1 v-text="name"></h1>
-      <!-- {{ }} tidak bisa dilakukan dalam attribut binding, harus menggunakan directive v-bind-->
-      <img v-bind:src="gambar" width="300">
+      <h1 v-text="bilangan"></h1>
+      <p>Bilangan ini adalah bilangan {{ infoBilangan }}</p>
+      <p>
+        <!-- <button v-on:click="handleClick()">Ditekan</button> -->
+        <button @click="handleClick()">Ditekan</button>
+      </p>
       <img :src="gambar" width="300">
       <p>The Progressive Javascript Framework</p>
     </header>
@@ -41,7 +44,7 @@
         qty: 7,
         namaDepan: 'Faiq ',
         namaBelakang: 'Nov',
-        bilangan: 6,
+        bilangan: 1,
         gambar: 'img/vue.png'
       },
       methods: {
@@ -51,6 +54,10 @@
         ubahNama: function (namaBaru) {
           this.name = namaBaru
           return this.getname()
+        },
+        handleClick: function () {
+          this.bilangan++;
+          this.gambar = 'img/react.png';
         }
       },
       computed: {
