@@ -61,10 +61,10 @@
       <img :src="gambar" width="300">
       <p>The Progressive Javascript Framework</p>
 
-      <!-- variable global "$event" sebagai parameter method untuk menangkap event* -->
-      <a v-bind:class="{active: menu === 'home'}" href="#" v-on:click="gantimenu('home', $event)">Home</a>
-      <a v-bind:class="{active: menu === 'about'}" href="#" v-on:click="gantimenu('about', $event)">About</a>
-      <a v-bind:class="{active: menu === 'blog'}" href="#" v-on:click="gantimenu('blog', $event)">Blog</a>
+      <!-- penggunaan event modifiers ".prevent" untuk mempersingkat DOM event handling -->
+      <a v-bind:class="{active: menu === 'home'}" href="#" v-on:click.prevent="gantimenu('home')">Home</a>
+      <a v-bind:class="{active: menu === 'about'}" href="#" v-on:click.prevent="gantimenu('about')">About</a>
+      <a v-bind:class="{active: menu === 'blog'}" href="#" v-on:click.prevent="gantimenu('blog')">Blog</a>
     </header>
 
     <footer>
@@ -105,9 +105,7 @@
             return angka % 2 == 0;
           })
         },
-        gantimenu: function (data, event) {
-          event.preventDefault();
-          console.log(event);
+        gantimenu: function (data) {
           this.menu = data;
         }
       },
