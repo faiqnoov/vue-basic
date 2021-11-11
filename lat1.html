@@ -29,12 +29,12 @@
       <p><input type="text" v-model="name"></p>
 
       <h3>Daftar Kelas ({{ kelas.length }})</h3>
-      <!-- jika kelas-nya ada isinya, maka render elemen di bawahnya -->
-      <ul v-if="kelas.length">
+      <!-- jika kelas-nya ada isinya, maka tampilkan elemen di bawahnya -->
+      <ul v-show="kelas.length">
         <li v-for="(k, index) in kelas">{{ index+1 }} - {{ k }}</li>
       </ul>
-      <!-- jika data kelas kosong -->
-      <li v-else>Kelas belum tersedia</li>
+      <!-- v-else tidak bisa disandingkan dgn v-else, karena dia pasangannya v-if -->
+      <!-- <li v-else>Kelas belum tersedia</li> -->
 
       <h3>Perulangan 1-5</h3>
       <ul>

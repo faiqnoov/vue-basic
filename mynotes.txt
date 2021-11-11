@@ -1,4 +1,4 @@
-#7 - DATA
+#7 DATA
 - data pada vue seperti variabel pada js
 - dapat berada di dalam maupun di luar object vue
 - dapat berupa string, number, boolean, array, object
@@ -31,6 +31,12 @@
 - v-model --> utk membuat binding data dgn konsep 2 arah
 - biasanya digunakan pada elemen inputan
 - data view berubah --> data pada objek berubah
+
+-----------------------------------------
+
+#28 DIRECTIVE "v-show"
+- jika kondisi bernilai false, maka element html tidak akan ditampilkan
+- hanya memberi style element bersangkutan dgn property css "display: none", berbeda dgn dir. v-if yang akan menghapus elemen html ketika kondisinya false
 
 -----------------------------------------
 
