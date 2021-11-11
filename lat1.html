@@ -33,6 +33,8 @@
       <ul v-if="kelas.length">
         <li v-for="(k, index) in kelas">{{ index+1 }} - {{ k }}</li>
       </ul>
+      <!-- jika data kelas kosong -->
+      <li v-else>Kelas belum tersedia</li>
 
       <h3>Perulangan 1-5</h3>
       <ul>
@@ -76,7 +78,7 @@
         bilangan: 1,
         gambar: 'img/vue.png',
         menu: 'home',
-        kelas: ['Golang', 'PHP', 'Python'],
+        kelas: [],
         numbers: [1, 2, 3, 4, 5]
       },
       methods: {
