@@ -28,8 +28,8 @@
       <h1 v-text="name"></h1>
 
       <h3>Form submit</h3>
-      <!-- penggunaan key modifiers -->
-      <p><input type="text" placeholder="Nama Kelas" v-on:keyup.enter="submit"></p>
+      <!-- penggunaan form input binding -->
+      <p><input type="text" placeholder="Nama Kelas" v-on:keyup.enter="submit" v-model="kelasbaru"></p>
 
       <h3>Daftar Kelas ({{ kelas.length }})</h3>
 
@@ -87,6 +87,7 @@
         gambar: 'img/vue.png',
         menu: 'home',
         kelas: ['PHP', 'Golang'],
+        kelasbaru: "",
         numbers: [1, 2, 3, 4, 5]
       },
       methods: {
@@ -109,11 +110,9 @@
         gantimenu: function (data) {
           this.menu = data;
         },
-        submit: function (event) {
-          let text = event.target.value;
-          this.kelas.push(text);
-          // kosongkan inputan setelah di push
-          event.target.value = "";
+        submit: function () {
+          this.kelas.push(this.kelasbaru);
+          this.kelasbaru = "";
         }
       },
       computed: {
