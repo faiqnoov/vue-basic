@@ -44,3 +44,4 @@
 - object dari vue instance
 - sebagai fungsi untuk menyimpan sebuah template
 - data dalam component harus berupa function
+- component harus didaftarkan sebelum instance object vue-nya

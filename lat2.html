@@ -51,9 +51,14 @@
         <header>
           <img src="img/vue.png" width="300">
 
-          <p>The Progressive Javascript Framework</p>
+          <p>{{ pesan }}</p>
         </header>
-      `
+      `,
+      data: function () {
+        return {
+          pesan: 'Hello, Component!'
+        }
+      }
     })
 
     Vue.component('footer-component', {
