@@ -45,3 +45,10 @@
 - sebagai fungsi untuk menyimpan sebuah template
 - data dalam component harus berupa function
 - component harus didaftarkan sebelum instance object vue-nya
+
+-----------------------------------------
+
+#42 LATIHAN PROPS
+- data yang dibutuhkan dalam sebuah aplikasi harus memiliki tempat khusus, supaya dapat kita bagikan datanya ke dalam berbagai component
+- dalam kasus ini, parent component sebagai penampung data yang akan menbagikan datanya ke child component-nya
+
