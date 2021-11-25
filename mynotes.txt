@@ -52,3 +52,10 @@
 - data yang dibutuhkan dalam sebuah aplikasi harus memiliki tempat khusus, supaya dapat kita bagikan datanya ke dalam berbagai component
 - dalam kasus ini, parent component sebagai penampung data yang akan menbagikan datanya ke child component-nya
 
+-----------------------------------------
+
+# COMPONENT PART 2
+- component dapat dideklarasikan secara local maupun global
+- penulisan component --> kebab-case, PascalCase
+- sintaks html dalam template bisa pake backtick (`...`) maupun petik satu ('...')
+  keunggulan backtick, penulisan template html bisa lebih fleksibel
