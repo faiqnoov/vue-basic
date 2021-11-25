@@ -27,7 +27,8 @@
     <header-component nama="Reactjs" gambar="img/react.png"></header-component>
 
     <main>
-      <kelas v-bind:items="kelas" v-bind:input="kelasbaru"></kelas>
+      <!-- komponen induk mendengar event dari clihd-nya -->
+      <kelas v-bind:items="kelas" v-bind:input="kelasbaru" v-on:hapuskelas="deletekelas"></kelas>
       <home></home>
     </main>
 
@@ -36,12 +37,10 @@
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script>
-    // component -- local registration
     const Home = {
       template: '<div>Home</div>'
     }
 
-    // component -- global registration
     Vue.component('header-component', {
       props: ['nama', 'gambar'],
       template: `
@@ -78,7 +77,10 @@
 
           <template v-if="items.length">
             <ul>
-              <li v-for="(item, index) in items">{{ index+1 }} - {{ item }}</li>
+              <li v-for="(item, index) in items">{{ index+1 }} - {{ item }}
+                
+                <a href="" v-on:click.prevent="$emit('hapuskelas', index)">hapus</a>
+              </li>
             </ul>
           </template>
 
@@ -100,7 +102,6 @@
 
     const vm = new Vue({
       el: '#app',
-      // pendaftaran component lokal
       components: {
         'home': Home
       },
@@ -109,6 +110,9 @@
         kelasbaru: ""
       },
       methods: {
+        deletekelas: function (index) {
+          this.kelas.splice(index, 1)
+        }
       },
       computed: {
       }

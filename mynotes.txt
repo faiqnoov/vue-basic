@@ -54,8 +54,14 @@
 
 -----------------------------------------
 
-# COMPONENT PART 2
+#43 COMPONENT PART 2
 - component dapat dideklarasikan secara local maupun global
 - penulisan component --> kebab-case, PascalCase
 - sintaks html dalam template bisa pake backtick (`...`) maupun petik satu ('...')
   keunggulan backtick, penulisan template html bisa lebih fleksibel
+
+-----------------------------------------
+
+#44 EMIT CUSTOM EVENTS
+- $emit -> listening to child component events
+- pada kasusu ini child comp. ingin menghapus data pada parent comp., maka child harus ijin dulu ke parent --> menggunakan $emit
