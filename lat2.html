@@ -28,7 +28,7 @@
 
     <main>
       <!-- komponen induk mendengar event dari clihd-nya -->
-      <kelas v-bind:items="kelas" v-bind:input="kelasbaru" v-on:hapuskelas="deletekelas"></kelas>
+      <kelas v-bind:items="kelas" v-on:tambahkelas="submitkelas" v-on:hapuskelas="deletekelas"></kelas>
       <home></home>
     </main>
 
@@ -65,12 +65,11 @@
     })
 
     Vue.component('kelas', {
-      props: ['items', 'input'],
-      // inputan tambah kelas masih error
+      props: ['items'],
       template: `
         <div>
           <h3>Tambah Kelas</h3>
-          <p><input type="text" placeholder="Nama Kelas" v-on:keyup.enter="submit" v-model="input"></p>
+          <p><input type="text" placeholder="Nama Kelas" v-on:keyup.enter="$emit('tambahkelas', $event)"></p>
 
           <hr>
           <h3>Daftar Kelas ({{ items.length }})</h3>
@@ -93,10 +92,6 @@
         }
       },
       methods: {
-        submit: function () {
-          this.kelas.unshift(this.kelasbaru);
-          this.kelasbaru = "";
-        }
       }
     })
 
@@ -106,12 +101,15 @@
         'home': Home
       },
       data: {
-        kelas: ['Golang', 'PHP'],
-        kelasbaru: ""
+        kelas: ['Golang', 'PHP']
       },
       methods: {
         deletekelas: function (index) {
           this.kelas.splice(index, 1)
+        },
+        submitkelas: function (event) {
+          const text = event.target.value
+          this.kelas.unshift(text)
         }
       },
       computed: {
