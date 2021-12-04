@@ -32,8 +32,6 @@
     </nav>
 
     <main>
-      <!-- <kelas v-bind:items="kelas" v-on:tambahkelas="submitkelas" v-on:hapuskelas="deletekelas"></kelas> -->
-      <!-- <home></home> -->
       <router-view v-bind:items="kelas" v-on:tambahkelas="submitkelas" v-on:hapuskelas="deletekelas"></router-view>
     </main>
 
@@ -44,6 +42,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
 
   <script>
     const Home = {
@@ -59,7 +58,21 @@
       template: `
         <div>
           <h3>Tambah Kelas</h3>
-          <p><input type="text" placeholder="Nama Kelas" v-on:keyup.enter="$emit('tambahkelas', $event)"></p>
+          
+          <form v-on:submit.prevent="tambahkelas">
+            <p><input type="text" v-model="kelas.judul" placeholder="Nama Kelas"></p>
+
+            <div class="input-group">
+              <label>Deskripsi: </label> <br>
+              <textarea v-model="kelas.deskripsi"></textarea>
+            </div>
+
+            <div class="input-group">
+              <label>Masukkan Gambar</label> <br>
+              <input type="file">
+            </div>
+            <button type="submit">Submit</button>
+          </form>
 
           <hr>
           <h3>Daftar Kelas ({{ items.length }})</h3>
@@ -77,9 +90,27 @@
       `,
       data: function () {
         return {
+          kelas: {
+            judul: '',
+            deskripsi: '',
+            gambar: ''
+          }
         }
       },
       methods: {
+        tambahkelas: function () {
+          const data = {
+            id: uuidv4(),
+            judul: this.kelas.judul,
+            deskripsi: this.kelas.deskripsi,
+            gambar: null
+          }
+
+          this.$emit('tambahkelas', data)
+
+          this.kelas.judul = "",
+            this.kelas.deskripsi = ""
+        }
       }
     }
 
@@ -134,9 +165,8 @@
           this.kelas = this.kelas.filter(item => item.id != id)
 
         },
-        submitkelas: function (event) {
-          const text = event.target.value
-          this.kelas.unshift(text)
+        submitkelas: function (data) {
+          this.kelas.push(data)
         }
       },
       computed: {
