@@ -80,8 +80,12 @@
 
           <template v-if="items.length">
             <ul>
-              <li v-for="(item, index) in items">{{ index+1 }} - {{ item.judul }}
-                <a href="" v-on:click.prevent="$emit('hapuskelas', item.id)">hapus</a>
+              <li v-for="(item, index) in items">
+                <img :src="'img/' + item.gambar" width="200" />
+                <p>
+                  {{ index+1 }} - {{ item.judul }}
+                  <a href="" v-on:click.prevent="$emit('hapuskelas', item.id)">hapus</a>
+                </p>
               </li>
             </ul>
           </template>
