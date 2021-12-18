@@ -213,6 +213,12 @@
       methods: {
         deletekelas: function (id) {
           this.kelas = this.kelas.filter(item => item.id != id)
+          localStorage.setItem('kelas', JSON.stringify(this.kelas))
+
+          swal({
+            text: 'Data kelas berhasil dihapus',
+            icon: 'warning'
+          })
         },
         submitkelas: function (data) {
           this.kelas.push(data)
