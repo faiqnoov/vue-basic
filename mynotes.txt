@@ -70,4 +70,8 @@
 
 #56 VALIDATION
 - validasi menggunakan atribut html 'required' kurang aman, karena bisa dimanipulasi oleh user. maka, validasi menggunakan vue
+- validasi yg kita lakukan sekarang masih dengan cara manual (dicek satu-persatu). Kita juga bisa mengunakan plugin vue untuk melakukan validasi
+  misal: VeeValidate, Vuelidate
+
+-----------------------------------------
 
