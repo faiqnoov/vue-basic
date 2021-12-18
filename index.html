@@ -31,7 +31,7 @@
 
 <body>
   <div id="app">
-    <header-component nama="Vuejs" gambar="img/vue.png"></header-component>
+    <header-component nama="Vuejs" gambar="img/logo.png"></header-component>
 
     <nav>
       <router-link to="/">Home</router-link>
@@ -165,7 +165,7 @@
       props: ['nama', 'gambar'],
       template: `
         <header>
-          <img :src="gambar" width="300">
+          <img :src="gambar" width="100">
           <p>{{ 'Hello, ' + nama }}</p>
         </header>
       `,
@@ -203,10 +203,17 @@
         'home': Home
       },
       data: {
-        kelas: [
-          { id: 1, judul: 'Vuejs', deskripsi: 'The Progressive JavaScript Framework', gambar: 'vue.png' },
-          { id: 2, judul: 'Reactjs', deskripsi: 'A JavaScript library for building user interfaces', gambar: 'react.png' },
-        ]
+        // kelas: [
+        //   { id: 1, judul: 'Vuejs', deskripsi: 'The Progressive JavaScript Framework', gambar: 'vue.png' },
+        //   { id: 2, judul: 'Reactjs', deskripsi: 'A JavaScript library for building user interfaces', gambar: 'react.png' },
+        // ]
+        kelas: []
+      },
+      // fungsi yg otomatis dijalankan ketika membuat object/instance vue
+      created() {
+        // isi data 'kelas' dgn data yg ada pada localstorage
+        // atau simpan dlm bentuk array kosong apabila data pada localstorage belum terdafter
+        this.kelas = JSON.parse(localStorage.getItem('kelas')) || []
       },
       methods: {
         deletekelas: function (id) {
