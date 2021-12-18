@@ -18,6 +18,14 @@
       border: 0;
       padding: 5px;
     }
+
+    .error {
+      color: red;
+    }
+
+    .input-group {
+      margin-bottom: 5px;
+    }
   </style>
 </head>
 
@@ -60,7 +68,10 @@
           <h3>Tambah Kelas</h3>
           
           <form v-on:submit.prevent="tambahkelas">
-            <p><input type="text" v-model="kelas.judul" placeholder="Nama Kelas"></p>
+            <div class="input-group">
+              <input type="text" v-model="kelas.judul" placeholder="Nama Kelas">
+              <div class="error" v-if="error.judul"><small>{{ error.judul }}</small></div>
+            </div>
 
             <div class="input-group">
               <label>Deskripsi: </label> <br>
@@ -101,24 +112,32 @@
             gambar: ''
           },
           previewimg: '',
+          error: {
+            judul: '',
+            deskripsi: ''
+          }
         }
       },
       methods: {
         tambahkelas: function () {
-          const data = {
-            id: uuidv4(),
-            judul: this.kelas.judul,
-            deskripsi: this.kelas.deskripsi,
-            gambar: this.kelas.gambar
+          if (this.kelas.judul == '') {
+            this.error.judul = 'Judul harus diisi!'
           }
 
-          this.$emit('tambahkelas', data)
+          // const data = {
+          //   id: uuidv4(),
+          //   judul: this.kelas.judul,
+          //   deskripsi: this.kelas.deskripsi,
+          //   gambar: this.kelas.gambar
+          // }
 
-          this.kelas.judul = "",
-            this.kelas.deskripsi = "",
-            this.kelas.gambar = "",
-            this.previewimg = "",
-            this.$refs.gambar.value = ""
+          // this.$emit('tambahkelas', data)
+
+          // this.kelas.judul = "",
+          //   this.kelas.deskripsi = "",
+          //   this.kelas.gambar = "",
+          //   this.previewimg = "",
+          //   this.$refs.gambar.value = ""
         },
         upload: function (event) {
           const namagambar = (event.target.files[0].name)

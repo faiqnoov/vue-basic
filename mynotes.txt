@@ -65,3 +65,9 @@
 #44 EMIT CUSTOM EVENTS
 - $emit -> listening to child component events
 - pada kasusu ini child comp. ingin menghapus data pada parent comp., maka child harus ijin dulu ke parent --> menggunakan $emit
+
+-----------------------------------------
+
+#56 VALIDATION
+- validasi menggunakan atribut html 'required' kurang aman, karena bisa dimanipulasi oleh user. maka, validasi menggunakan vue
+
