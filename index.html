@@ -68,8 +68,9 @@
             </div>
 
             <div class="input-group">
+              <p><img :src="previewimg" v-if="previewimg" width="200" /></p>
               <label>Masukkan Gambar</label> <br>
-              <input type="file">
+              <input type="file" v-on:change="upload">
             </div>
             <button type="submit">Submit</button>
           </form>
@@ -94,7 +95,8 @@
             judul: '',
             deskripsi: '',
             gambar: ''
-          }
+          },
+          previewimg: '',
         }
       },
       methods: {
@@ -103,13 +105,18 @@
             id: uuidv4(),
             judul: this.kelas.judul,
             deskripsi: this.kelas.deskripsi,
-            gambar: null
+            gambar: this.kelas.gambar
           }
 
           this.$emit('tambahkelas', data)
 
           this.kelas.judul = "",
             this.kelas.deskripsi = ""
+        },
+        upload: function (event) {
+          const namagambar = (event.target.files[0].name)
+          this.kelas.gambar = namagambar
+          this.previewimg = URL.createObjectURL(event.target.files[0])
         }
       }
     }
