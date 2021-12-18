@@ -51,6 +51,8 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
   <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
   <script>
     const Home = {
@@ -203,16 +205,9 @@
         'home': Home
       },
       data: {
-        // kelas: [
-        //   { id: 1, judul: 'Vuejs', deskripsi: 'The Progressive JavaScript Framework', gambar: 'vue.png' },
-        //   { id: 2, judul: 'Reactjs', deskripsi: 'A JavaScript library for building user interfaces', gambar: 'react.png' },
-        // ]
         kelas: []
       },
-      // fungsi yg otomatis dijalankan ketika membuat object/instance vue
       created() {
-        // isi data 'kelas' dgn data yg ada pada localstorage
-        // atau simpan dlm bentuk array kosong apabila data pada localstorage belum terdafter
         this.kelas = JSON.parse(localStorage.getItem('kelas')) || []
       },
       methods: {
@@ -222,6 +217,12 @@
         submitkelas: function (data) {
           this.kelas.push(data)
           localStorage.setItem('kelas', JSON.stringify(this.kelas))
+
+          swal({
+            title: data.judul,
+            text: 'Data kelas berhasil disimpan',
+            icon: 'success'
+          })
         }
       },
       computed: {
