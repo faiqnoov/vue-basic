@@ -75,3 +75,7 @@
 
 -----------------------------------------
 
+#58 LOCAL STORAGE
+- fitur html5 yg ada dalam browser modern
+- salah satu fungsinya: penyimpanan data sementara sebelum dikirim ke server database
+- merupakan object, memiliki beberapa method

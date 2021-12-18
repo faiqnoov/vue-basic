@@ -211,10 +211,10 @@
       methods: {
         deletekelas: function (id) {
           this.kelas = this.kelas.filter(item => item.id != id)
-
         },
         submitkelas: function (data) {
           this.kelas.push(data)
+          localStorage.setItem('kelas', JSON.stringify(this.kelas))
         }
       },
       computed: {
