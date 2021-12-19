@@ -91,11 +91,10 @@
 
           <hr>
           <h3>Daftar Kelas ({{ items.length }})</h3>
-
           <template v-if="items.length">
             <ul>
               <li v-for="(item, index) in items">
-                <img :src="'img/' + item.gambar" width="200" />
+                <img :src="url_gambar(item.gambar)" width="200" />
                 <p>
                   {{ index+1 }} - {{ item.judul }}
                   <a href="" v-on:click.prevent="$emit('hapuskelas', item.id)">hapus</a>
@@ -156,6 +155,9 @@
           const namagambar = (event.target.files[0].name)
           this.kelas.gambar = namagambar
           this.previewimg = URL.createObjectURL(event.target.files[0])
+        },
+        url_gambar: function (gambar) {
+          return '../img/' + gambar
         }
       }
     }
@@ -165,7 +167,32 @@
     }
 
     const detailKelas = {
-      template: '<div>Halaman detail kelas</div>'
+      template: `
+        <div>
+          <img :src="url_gambar(detailkelas.gambar)" width="200" />
+          <h3>{{ detailkelas.judul }}</h3>
+          <p>{{ detailkelas.deskripsi }}</p>
+          <router-link to="/kelas/">kembali</router-link>
+        </div>`,
+      data() {
+        return {
+          detailkelas: {}
+        }
+      },
+      created() {
+        this.filterkelas()
+      },
+      methods: {
+        filterkelas() {
+          let kelas = JSON.parse(localStorage.getItem('kelas'))
+          let id = this.$route.params.idkelas
+          let item = kelas.filter(k => k.id == id)
+          this.detailkelas = item[0]
+        },
+        url_gambar: function (gambar) {
+          return '../img/' + gambar
+        }
+      }
     }
 
     Vue.component('header-component', {
@@ -195,7 +222,7 @@
       { path: '/', component: Home },
       { path: '/about', component: About },
       { path: '/kelas', component: Kelas },
-      { path: '/kelas/:id', component: detailKelas },
+      { path: '/kelas/:idkelas', component: detailKelas },
       { path: '*', component: NotFound },
     ]
 

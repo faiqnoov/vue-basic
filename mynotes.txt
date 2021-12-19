@@ -86,4 +86,4 @@
 # 63 LIFECYCLE HOOKS
 - setiap melakukan instance vue, maka program akan melalui serangkaian langkah/stage -- dari inisialisasi sampai komponen berhasil dirender
 - kita dapat menambahkan kode pada setiap spesific stages
-- contoh: create, mounted, updated, destroyed
+- contoh: created, mounted, updated, destroyed
