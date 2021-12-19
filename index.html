@@ -99,6 +99,7 @@
                 <p>
                   {{ index+1 }} - {{ item.judul }}
                   <a href="" v-on:click.prevent="$emit('hapuskelas', item.id)">hapus</a>
+                  <router-link :to="'/kelas/' + item.id">Lihat kelas</router-link>
                 </p>
               </li>
             </ul>
@@ -163,6 +164,10 @@
       template: '<div>Halaman Tidak Ditemukan!</div>'
     }
 
+    const detailKelas = {
+      template: '<div>Halaman detail kelas</div>'
+    }
+
     Vue.component('header-component', {
       props: ['nama', 'gambar'],
       template: `
@@ -190,6 +195,7 @@
       { path: '/', component: Home },
       { path: '/about', component: About },
       { path: '/kelas', component: Kelas },
+      { path: '/kelas/:id', component: detailKelas },
       { path: '*', component: NotFound },
     ]
 
@@ -199,7 +205,7 @@
     })
 
     const vm = new Vue({
-      // el: '#app',
+      el: '#app',
       router,
       components: {
         'home': Home
@@ -234,9 +240,6 @@
       computed: {
       }
     })
-
-    // jika tidak ada option 'el' pada instance vue
-    vm.$mount('#app')
   </script>
 </body>
 
