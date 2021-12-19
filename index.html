@@ -199,7 +199,7 @@
     })
 
     const vm = new Vue({
-      el: '#app',
+      // el: '#app',
       router,
       components: {
         'home': Home
@@ -235,6 +235,8 @@
       }
     })
 
+    // jika tidak ada option 'el' pada instance vue
+    vm.$mount('#app')
   </script>
 </body>
 
