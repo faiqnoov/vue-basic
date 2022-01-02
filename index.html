@@ -53,6 +53,24 @@
   <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+  <!-- firebase -->
+  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDJrg4dlE5toXCwi7JRKkc_ZjnKFyCKgqc",
+      authDomain: "tutorial-vuejs-byfaiq.firebaseapp.com",
+      databaseURL: "https://tutorial-vuejs-byfaiq-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "tutorial-vuejs-byfaiq",
+      storageBucket: "tutorial-vuejs-byfaiq.appspot.com",
+      messagingSenderId: "1096518799991",
+      appId: "1:1096518799991:web:cae1200d0b2918d883ec72"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
 
   <script>
     const Home = {
