@@ -55,6 +55,7 @@
 
   <!-- firebase -->
   <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-database.js"></script>
 
   <script>
     // Firebase configuration
@@ -70,6 +71,12 @@
 
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+
+    // akses realtime database
+    const db = firebase.database()
+
+    // collection ref
+    const kelasRef = db.ref('kelas')
   </script>
 
   <script>
@@ -259,9 +266,15 @@
         kelas: []
       },
       created() {
-        this.kelas = JSON.parse(localStorage.getItem('kelas')) || []
+        kelasRef.on('value', this.resultData, this.errorData)
       },
       methods: {
+        resultData(items) {
+          console.log(items.val())
+        },
+        errorData(error) {
+          console.log(error)
+        },
         deletekelas: function (id) {
           this.kelas = this.kelas.filter(item => item.id != id)
           localStorage.setItem('kelas', JSON.stringify(this.kelas))
